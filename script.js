@@ -10,26 +10,34 @@ game();
 function game(){
     let playerScore = 0;
     let computerScore = 0;
-    for (let i=0;i<maxRounds;i++){       
+    for (let i=0;i<i+1;i++){       
         const playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
         let result = playRound(playerSelection,computerSelection);
         if (result==="win"){
             playerScore += 1;
+            if (playerScore === maxRounds){
+                console.log("Player Wins the game");
+                break;
+            }
         }
         else if (result ==="lose"){
             computerScore +=1;
+            if (computerScore === maxRounds){
+                console.log("Computer Wins the game");
+                break;
+            }
         }
     }
-    if (playerScore > computerScore){
-        console.log("Player Wins the game")
-    }
-    else if (playerScore < computerScore){
-        console.log("Computer Wins the game")
-    }
-    else{
-        console.log("Game Draw")
-    }
+    // if (playerScore > computerScore){
+    //     console.log("Player Wins the game")
+    // }
+    // else if (playerScore < computerScore){
+    //     console.log("Computer Wins the game")
+    // }
+    // else{
+    //     console.log("Game Draw")
+    // }
 }
 
 /**
@@ -69,7 +77,7 @@ function getComputerChoice(){
  * 
  * @param {the player selection} playerSelection 
  * @param {computer selection} computerSelection 
- * Compares Player selection with computer and gives result
+ * Compares Player selection with computer and gives
  * @returns result - win, lose or draw
  */
 
